@@ -7,7 +7,10 @@ public class Aluno {
     private String curso;
 
     public Aluno(String nome, int ra, int periodo, String curso) {
-
+        setNome(nome);
+        setRa(ra);
+        setPeriodo(periodo);
+        setCurso(curso);
     }
 
     public String getNome() {
@@ -26,6 +29,7 @@ public class Aluno {
     public int getRa() {
         return ra;
     }
+    
     public void setRa(int ra) {
         if(ra >= 1000 && ra <= 9999) {
             this.ra = ra;
@@ -38,8 +42,38 @@ public class Aluno {
         return periodo;
     }
     public void setPeriodo(int periodo) {
-        if (periodo >= 1 && periodo <= 25){
+        if (periodo >= 1 && periodo <= 10){
             this.periodo = periodo;
         }
     }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        if(curso != null && !curso.isEmpty()) {
+            this.curso = curso;
+        } else {
+            System.out.println("Curso invalido!");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "nome='" + nome + '\'' +
+                ", ra=" + ra +
+                ", periodo=" + periodo +
+                ", curso='" + curso + '\'' +
+                '}';
+    }
+
+    public void exibirAluno(){
+        System.out.println("Nome: " + nome);
+        System.out.println("RA: " + ra);
+        System.out.println("Periodo: " + periodo);
+        System.out.println("Curso: " + curso);
+    }
+
 }
