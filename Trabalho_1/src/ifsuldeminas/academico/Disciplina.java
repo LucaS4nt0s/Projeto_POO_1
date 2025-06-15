@@ -184,10 +184,8 @@ public class Disciplina {
 
     public boolean estaAprovado(int posAluno) {
         if (posAluno >= 0 && posAluno < alunos.size() && notas.get(posAluno) >= 6 && frequencias.get(posAluno) >= (0.75 * numTotalAulas)) {
-            System.out.println("Aluno " + alunos.get(posAluno).getNome() + " aprovado!");
             return true;
         } else if (posAluno >= 0 && posAluno < alunos.size()) {
-            System.out.println("Aluno " + alunos.get(posAluno).getNome() + " reprovado!");
             return false;
         } else {
             System.out.println("Posicao invalida!");
@@ -199,7 +197,7 @@ public class Disciplina {
         System.out.println("Alunos reprovados na disciplina:");
         for (int i = 0; i < alunos.size(); i++) {
             if (!estaAprovado(i)) {
-                System.out.println("=================================");
+                alunos.get(i).exibirAluno();
             }
         }
         
@@ -209,7 +207,7 @@ public class Disciplina {
         System.out.println("Alunos aprovados na disciplina:");
         for (int i = 0; i < alunos.size(); i++) {
             if (estaAprovado(i)) {
-                System.out.println("=================================");
+                alunos.get(i).exibirAluno();
             }
         }   
     }
