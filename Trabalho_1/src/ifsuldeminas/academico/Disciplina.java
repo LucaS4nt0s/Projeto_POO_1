@@ -384,7 +384,7 @@ public class Disciplina {
         // Ordena as notas e os alunos correspondentes por nota (maior para menor)
         for (int i = 0; i < notasOrdenadas.size() - 1; i++) {
             for (int j = i + 1; j < notasOrdenadas.size(); j++) {
-                if (notasOrdenadas.get(i) > notasOrdenadas.get(j)) {
+                if (notasOrdenadas.get(i) < notasOrdenadas.get(j)) {
                     // Troca as notas
                     double tempNota = notasOrdenadas.get(i);
                     notasOrdenadas.set(i, notasOrdenadas.get(j));
