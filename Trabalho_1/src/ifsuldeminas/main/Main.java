@@ -1,7 +1,7 @@
 package ifsuldeminas.main;
 import java.util.Scanner;
 import ifsuldeminas.alunos.Aluno;
-import ifsuldeminas.disciplinas.Disciplina;
+import ifsuldeminas.academico.Disciplina;
 import ifsuldeminas.funcionarios.Professor;
 
 public class Main{
