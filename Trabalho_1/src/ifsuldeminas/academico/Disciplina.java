@@ -368,7 +368,7 @@ public class Disciplina {
             int posAluno = alunos.indexOf(aluno);
             notas.remove(posAluno);
             frequencias.remove(posAluno);
-            aluno.remove(this);
+            alunos.remove(this);
             System.out.println("Aluno " + aluno.getNome() + " desmatriculado com sucesso.");
             System.out.println("=================================");
         }
@@ -421,7 +421,7 @@ public class Disciplina {
         System.out.println("Alunos matriculados:");
         for (Aluno aluno : alunos) {
             System.out.println(" - " + aluno.getNome() + " (RA: " + aluno.getRa() + ")");
-            posAluno = alunos.indexOf(aluno);
+            int posAluno = alunos.indexOf(aluno);
             System.out.println("   Nota: " + notas.get(posAluno));
             System.out.println("   Frequencia: " + frequencias.get(posAluno) + "/" + numTotalAulas);
         }

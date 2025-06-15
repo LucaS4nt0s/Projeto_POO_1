@@ -5,6 +5,8 @@ import ifsuldeminas.academico.Disciplina;
 import ifsuldeminas.funcionarios.Professor;
 
 public class Main{
+    private static Aluno Aluno;
+
     public static void main(String[] args) {
         Disciplina disciplina = new Disciplina("Programação Orientada a Objetos", 1, 4, 15);
 
@@ -58,7 +60,7 @@ public class Main{
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
-        do{
+        do {
             System.out.println("Menu:");
             System.out.println("Digite o número da opção desejada:");
             System.out.println("0 - Sair (encerrar o programa)");
@@ -90,8 +92,8 @@ public class Main{
                     break;
                 case 2:
                     System.out.println("Número de Alunos: " + disciplina.getNumAlunos());
-                    System.out.println("Número de Reprovados: " + disciplina.getNumReprovados());
-                    System.out.println("Número de Aprovados: " + disciplina.getNumAprovados());
+                    System.out.println("Número de Reprovados: " + disciplina.getQuantidadeReprovados());
+                    System.out.println("Número de Aprovados: " + disciplina.getQuantidadeAprovados());
                     break;
                 case 3:
                     System.out.println("Aprovados:");
@@ -131,43 +133,46 @@ public class Main{
                     disciplina.exibirOrdenadosPorNota();
                     break;
                 case 11:
-                    do{
-                        System.out.println("Matricular Aluno:");
-                        System.out.print("Digite o nome do aluno: ");
-                        scanner.nextLine(); 
-                        String nome = scanner.nextLine();
-                        System.out.print("Digite o curso do aluno: ");
-                        String curso = scanner.nextLine();
-                        System.out.print("Digite o RA do aluno: ");
-                        int ra = scanner.nextInt();
-                        Aluno novoAluno = new Aluno(nome, ra, 1, curso);
-                    }while(!novoAluno.isValid());
+                    Aluno novoAluno;
+
+                    System.out.println("Matricular Aluno:");
+                    System.out.print("Digite o nome do aluno: ");
+                    scanner.nextLine();
+                    String nome = scanner.nextLine();
+                    System.out.print("Digite o curso do aluno: ");
+                    String curso = scanner.nextLine();
+                    System.out.print("Digite o RA do aluno: ");
+                    int ra = scanner.nextInt();
+                    novoAluno = new Aluno(nome, ra, 1, curso);
+
 
                     boolean matriculaValida = disciplina.matricularAluno(novoAluno);
-                    if(matriculaValida) {
+                    if (matriculaValida) {
                         System.out.println("Aluno " + novoAluno.getNome() + " matriculado com sucesso!");
                     } else {
                         System.out.println("Não foi possível matricular o aluno. RA semelhante já cadastrado");
                         return;
                     }
-                    
-                    do{
-                        boolean notaValida = false;
+
+                    boolean notaValida;
+                    do {
+                        notaValida = false;
                         System.out.println("Digite a nota do aluno: ");
                         double nota = scanner.nextDouble();
                         notaValida = disciplina.addNota(disciplina.getNumAlunos() - 1, nota);
-                    }while(!notaValida);
+                    } while (!notaValida);
 
-                    do{
-                        boolean frequenciaValida = false;
+                    boolean frequenciaValida;
+                    do {
+                        frequenciaValida = false;
                         System.out.println("Digite a frequência do aluno: ");
                         int frequencia = scanner.nextInt();
                         frequenciaValida = disciplina.addFrequencia(disciplina.getNumAlunos() - 1, frequencia);
-                    }while(!frequenciaValida);
+                    } while (!frequenciaValida);
                     break;
                 default:
                     System.out.println("Opção inválida! Tente novamente.");
             }
-        }
+        }while(opcao != 0);
     }
 }

@@ -1,5 +1,7 @@
 package ifsuldeminas.alunos;
 
+import ifsuldeminas.academico.Disciplina;
+
 public class Aluno {
     private String nome;
     private int ra;
@@ -75,5 +77,6 @@ public class Aluno {
         System.out.println("Periodo: " + periodo);
         System.out.println("Curso: " + curso);
     }
+
 
 }
