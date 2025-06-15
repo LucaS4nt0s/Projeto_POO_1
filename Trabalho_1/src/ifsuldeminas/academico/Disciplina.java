@@ -197,7 +197,7 @@ public class Disciplina {
         System.out.println("Alunos reprovados na disciplina:");
         for (int i = 0; i < alunos.size(); i++) {
             if (!estaAprovado(i)) {
-                alunos.get(i).exibirAluno();
+                System.out.println(alunos.get(i).getNome()+ "esta reprovado!");
             }
         }
         
@@ -207,7 +207,7 @@ public class Disciplina {
         System.out.println("Alunos aprovados na disciplina:");
         for (int i = 0; i < alunos.size(); i++) {
             if (estaAprovado(i)) {
-                alunos.get(i).exibirAluno();
+                System.out.println(alunos.get(i).getNome()+ "esta aprovado!");
             }
         }   
     }
